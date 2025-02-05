@@ -1,0 +1,76 @@
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  body{
+    background-color: black;
+  }
+  
+  .container{
+    background-color: rgb(154, 79, 240);
+    border-radius: 60px;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 2px 2px 1px rgba(214, 209, 209, 0.2);
+    box-shadow: 2px 5px 10px 0 rgb(207, 164, 255), 0 7px 30px 3px rgb(207, 193, 223);
+  }
+  
+  .container h1{
+    font-size: 3.6rem;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    color: rgb(255, 255, 255);
+    text-shadow: 4px 4px 6px rgb(207, 164, 255);
+  }
+  
+  .container input{
+    width: 20rem;
+    background-color: rgb(218, 201, 238);
+    margin-right: 2rem;
+    margin-top: 2rem;
+    font-size: 18px;
+    color: rgb(98, 58, 146);
+  }
+  
+  .container input:not(:last-child){
+    margin-bottom: 1rem;
+  }
+  
+  .container input::placeholder{
+    color: rgb(98, 58, 146);
+    font-size: 18px;
+    font-weight: 500;
+   
+  }
+  
+  .caixa{
+    width: 200px;
+    height: 40px;
+    border: 1px solid #b7b7b7;
+    border-radius: 5px;
+    background-color: beige;
+  
+  }
+  
+  .button_forms{
+    margin-top: 2.7rem;
+    background-color: rgb(116, 44, 199);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    width: 9.5rem;
+    border-radius: 40px;
+    transition: all ease-in 0.15s;
+  }
+  
+  .button_forms:hover{
+    scale: 1.24;
+    background-color: rgb(189, 152, 235);
+    border-style: none;
+  }
+  

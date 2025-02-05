@@ -1,16 +1,16 @@
 import React from "react";
-import './App.css'
+import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Login from "./componentes/login";
+import Home from "./componentes/home";
 
-export default function fuba(){
+export default function App(){
   return(
-    <>
-      <div className="container">
-        <h1>Login</h1>
-        <input placeholder="   User" className="caixa" type="text"></input>
-        <input placeholder="   Password" className="caixa" type="password"></input>
-        <button className="button_forms">Send</button>
-      </div>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element = {<Login/>}/>
+        <Route path="/login" element = {<Login/>}/>
+        <Route path="/home" element = {<Home/>}/>
+      </Routes>
+    </Router>
   )
 }
-

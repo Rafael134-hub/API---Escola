@@ -46,7 +46,7 @@ body{
 }
 
 .container{
-  background-color: rgb(228, 120, 192);
+  background-color: rgb(154, 79, 240);
   border-radius: 30px;
   width: 500px;
   height: 500px;
@@ -54,28 +54,34 @@ body{
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  box-shadow: 4px, 4px, 4px, 4px, rgb(228, 134, 196);
+  box-shadow: 2px 2px 2px 1px rgba(214, 209, 209, 0.2);
+  box-shadow: 2px 5px 10px 0 rgb(207, 164, 255), 0 7px 30px 3px rgb(207, 193, 223);
 }
 
 .container h1{
-  font-size: 3.5rem;
+  font-size: 3.6rem;
   margin-top: 1rem;
   margin-bottom: 3rem;
   color: rgb(255, 255, 255);
+  text-shadow: 4px 4px 6px rgb(207, 164, 255);
 }
 
 .container input{
   width: 20rem;
-  background-color: rgb(235, 192, 220);
-  color: rgb(255, 255, 255);
+  background-color: rgb(218, 201, 238);
   margin-right: 2rem;
   margin-top: 2rem;
 }
 
+.container input:not(:last-child){
+  margin-bottom: 1rem;
+}
+
 .container input::placeholder{
-  color: rgb(44, 7, 32);
+  color: rgb(98, 58, 146);
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 500;
+ 
 }
 
 .caixa{
@@ -88,17 +94,17 @@ body{
 }
 
 .button_forms{
-  margin-top: 4rem;
-  background-color: rgb(214, 28, 152);
+  margin-top: 2.7rem;
+  background-color: rgb(116, 44, 199);
   color: rgb(255, 255, 255);
-  font-size: 18px;
-  width: 9rem;
+  font-size: 20px;
+  width: 9.5rem;
   border-radius: 40px;
-  transition: all ease-in 0.11s;
+  transition: all ease-in 0.15s;
 }
 
 .button_forms:hover{
-  scale: 1.25;
-  background-color: rgb(252, 181, 228);
-  color: rgb(129, 23, 94);
+  scale: 1.24;
+  background-color: rgb(189, 152, 235);
+  border-style: none;
 }

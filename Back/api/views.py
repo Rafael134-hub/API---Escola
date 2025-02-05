@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework import views
 from rest_framework import status
 from rest_framework.response import Response 
@@ -64,6 +64,7 @@ class TeacherAPIView(views.APIView):
         
 
 @api_view(['GET', 'POST'])
+@permission_classes([IsAuthenticated])
 def listar_professores(request, id=None):
 
     if request.method == 'GET':
