@@ -1,37 +1,103 @@
-import React, {useState, useEffect} from "react";
-import './styles.css'
 import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { FaEdit, FaTrash, FaPlus, FaSearch } from 'react-icons/fa'
+import './styles.css'
 
-export default function Home(){
-  const token = localStorage.getItem('token')
-  console.log('Token Home: ', token)
-  useEffect(() => {
-      const fetchData = async () =>{
-        try {
-            const response = await axios.get(
-              'http://127.0.0.1:8000/teachers1/',
-              {
-                headers: {
-                  Authorization: `Bearer ${token}`
-                }
-              }
-              
+export default function Home() {
+    const [dados, setDados] = useState([])
+    const token = localStorage.getItem('token')
+    console.log("Token Home", token)
 
-            )
-        } catch (error) {
-          
+    useEffect(() => {
+
+        if (!token) return;
+
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://127.0.0.1:8000/teachers1/',
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    }
+                )
+                setDados(response.data)
+            } catch (error) {
+                console.log(error)
+            }
         }
-      }  
-  }, [])
 
-  return(
-    <>
-      <h1>Jiafei</h1>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwoATkO8TZF-stgJ5Cb8Rm3BEN2xPfaIdXZQ&s"/>
-      
+        fetchData()
+    }, [dados])
 
+    const apagar = async (id)=>{
+        if (window.confirm("Tem certeza? ")){
+            try {
+                await axios.delete(`http://127.0.0.1:8000/teachers1/${id}`,
+                    {
+                        headers:{
+                            Authorization: `Bearer ${token}`
+                        }
+                    }
+                )
+                setDados(dados.filter((professor)=>{professor.id !== id}))
+            } catch (error) {
+                console.error(error)
+            }
+        }
+    }
 
-    </>
-  )
+    return (
+        <div className="container_home">
+            <body>
+                <header>
+                    <h1>Lista de professores</h1>
+                </header>
+
+                <div className="lista">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ações</th>
+                                <th>ID</th>
+                                <th>NI</th>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Telefone</th>
+                                <th>Ocupação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {dados.map((professor) => (
+                                <tr key={professor.id}>
+                                    <td>
+                                        <FaEdit className="edit" />
+                                        <FaTrash className="delete" onClick={()=>apagar(professor.id)}/>
+                                    </td>
+                                    <td>{professor.id}</td>
+                                    <td>{professor.ni}</td>
+                                    <td>{professor.name}</td>
+                                    <td>{professor.email}</td>
+                                    <td>{professor.phone}</td>
+                                    <td>{professor.ocupacao}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+                
+                <footer>
+                    <div className="btn1">
+                        <FaPlus className="adicionar"/>
+                    </div>
+                    <div className="pesquisar">
+                        <input placeholder="id"/>
+                    </div>
+                    <div className="btn2">
+                        <FaSearch className="procurar" />
+                    </div>
+                </footer>
+            </body>
+        </div>
+    )
 }
-

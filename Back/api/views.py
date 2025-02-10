@@ -65,7 +65,7 @@ class TeacherAPIView(views.APIView):
 
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
-def listar_professores(request, id=None):
+def listar_professores(request):
 
     if request.method == 'GET':
         queryset = Teacher.objects.all()
@@ -87,3 +87,4 @@ class TheachersView(ListCreateAPIView):
 class TeachersDetailView(RetrieveUpdateDestroyAPIView):
     queryset = Teacher.objects.all()
     serializer_class = TeacherSerializer
+    permission_classes = [IsAuthenticated]

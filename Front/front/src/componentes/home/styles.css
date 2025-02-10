@@ -1,3 +1,109 @@
-*{
-    color: azure;
+* {
+    box-sizing: border-box; 
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    margin: 0;
+    padding: 0;
+    font-size: 16px; 
+}
+
+.container_home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 160px; 
+
+header {
+    background-color: rgb(33, 17, 77);
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+}
+
+footer {
+    background-color: rgb(8, 7, 61);
+    color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 16px; 
+}
+
+footer h1 {
+    margin: 0;
+}
+
+.lista {
+    background-color: rgb(186, 187, 186);
+    margin-top: 200px; /* Ajuste para que o conteúdo não sobreponha o header */
+    width: 90%; /* Ajustar para a largura da tela */
+    max-width: 1000px; /* Máximo para não ficar grande demais em telas grandes */
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td, table{
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+.edit {
+    color: blue;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.delete {
+    color: red;
+    cursor: pointer;
+}
+
+.btn1, .btn2 {
+    width: 60px;
+    height: 60px;
+    color: #000;
+    background-color: aliceblue;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pesquisar input {
+    height: 40px;
+    width: 300px;
+    font-size: 16px;
+    border-radius: 10px;
+    padding-left: 10px;
+}
 }
